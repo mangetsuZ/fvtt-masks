@@ -5,9 +5,9 @@
  */
 
 // Import Modules
-import { SimpleActor } from "./actor.js";
-import { SimpleItemSheet } from "./item-sheet.js";
-import { SimpleActorSheet } from "./actor-sheet.js";
+import { MasksActor } from "./actor.js";
+import { MasksItemSheet } from "./item-sheet.js";
+import { MasksActorSheet } from "./actor-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -26,13 +26,13 @@ Hooks.once("init", async function() {
   };
 
 	// Define custom Entity classes
-  CONFIG.Actor.entityClass = SimpleActor;
+  CONFIG.Actor.entityClass = MasksActor;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("worldbuilding", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("worldbuilding", MasksActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("worldbuilding", SimpleItemSheet, {makeDefault: true});
+  Items.registerSheet("worldbuilding", MasksItemSheet, {makeDefault: true});
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {
