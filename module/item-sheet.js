@@ -7,23 +7,30 @@ export class MasksItemSheet extends ItemSheet {
   /** @override */
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
-			classes: ["worldbuilding", "sheet", "item"],
-			template: "systems/worldbuilding/templates/item-sheet.html",
+			classes: ["masks", "sheet", "item"],
 			width: 520,
 			height: 480,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
-		});
+            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details"}],
+            submitOnChange: true,
+      });
   }
 
   /* -------------------------------------------- */
 
   /** @override */
+  get template() {
+    const path = "systems/masks/templates/";
+    return `${path}/${this.item.data.type}-sheet.html`;
+  }
+
+  /** @override */
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    for ( let attr of Object.values(data.data.attributes) ) {
-      attr.isCheckbox = attr.dtype === "Boolean";
-    }
+    data.data.playbooklist = [
+      "The Beacon", "The Bull", "The Delinquent", "The Doomed", "The Janus", "The Legacy",
+      "The Nova", "The Outsider", "The Protege", "The Transformed"
+    ];
     return data;
   }
 
@@ -97,11 +104,6 @@ export class MasksItemSheet extends ItemSheet {
       obj[k] = v;
       return obj;
     }, {});
-    
-    // Remove attributes which are no longer used
-    for ( let k of Object.keys(this.object.data.data.attributes) ) {
-      if ( !attributes.hasOwnProperty(k) ) attributes[`-=${k}`] = null;
-    }
 
     // Re-combine formData
     formData = Object.entries(formData).filter(e => !e[0].startsWith("data.attributes")).reduce((obj, e) => {
