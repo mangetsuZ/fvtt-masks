@@ -1,56 +1,12 @@
 {
 "Actor": {
   "types": ["hero", "villain"],
-  "character": {
-    "playbook": "",
+  "hero": {
     "hero_name": "",
     "real_name": "",
     "appearance": "",
-    "moment_of_truth": "",
     "potential": {
 
-    },
-    "influence": "",
-    "backstory": {
-      "number_1": {
-        "value": ""
-      },
-      "number_2": {
-        "value": ""
-      },
-      "number_3": {
-        "value": ""
-      },
-      "number_4": {
-        "value": ""
-      },
-      "number_5": {
-        "value": ""
-      }
-    },
-    "team_story": {
-      "label": "When our team first came together...",
-      "value": {}
-    },
-    "labels": {
-      "danger": {
-        "label": "Danger"
-      },
-      "freak": {
-        "label": "Freak"
-      },
-      "savior":{
-        "label": "Savior"
-      },
-      "superior": {
-        "label": "Superior"
-      },
-      "mundane": {
-        "label": "Mundane"
-      },
-      "extra": {
-        "label": "Extra"
-      }
     },
     "conditions": {
       "afraid": {
@@ -72,48 +28,106 @@
         "label": "Extra"
       }
     },
-    "team_moves": {
-      "move_a": "",
-      "move_b": ""
-    },
-    "moves": {
-
-    },
-    "advances": {
-      "label": "Advances",
-      "later_advances": {
-        "label": "Later Advances"
-      }
-    },
-    "abilities": {
-      "ability_one": {
-        "label": ""
+    "influence": "",
+    "playbook": {
+      "name": "",
+      "moment_of_truth": "",
+      "backstory": {
+        "number_1": {
+          "value": ""
+        },
+        "number_2": {
+          "value": ""
+        },
+        "number_3": {
+          "value": ""
+        },
+        "number_4": {
+          "value": ""
+        },
+        "number_5": {
+          "value": ""
+        }
       },
-      "hopeless": {
-        "label": "Hopeless"
+      "team_story": {
+        "label": "When our team first came together...",
+        "value": {}
       },
-      "insecure":{
-        "label": "Insecure"
+      "labels": {
+        "danger": {
+          "label": "Danger"
+        },
+        "freak": {
+          "label": "Freak"
+        },
+        "savior":{
+          "label": "Savior"
+        },
+        "superior": {
+          "label": "Superior"
+        },
+        "mundane": {
+          "label": "Mundane"
+        },
+        "extra": {
+          "label": "Extra"
+        }
       },
-      "guilty": {
-        "label": "Guilty"
+      "advances": {
+        "label": "Advances",
+        "later_advances": {
+          "label": "Later Advances"
+        }
       },
-      "angry": {
-        "label": "Angry"
-      },
-      "extra": {
-        "label": "Extra"
+      "abilities": {
+        "ability_one": {
+          "label": ""
+        },
+        "hopeless": {
+          "label": "Hopeless"
+        },
+        "insecure":{
+          "label": "Insecure"
+        },
+        "guilty": {
+          "label": "Guilty"
+        },
+        "angry": {
+          "label": "Angry"
+        },
+        "extra": {
+          "label": "Extra"
+        }
       }
     }
-  }
+  },
+  "villain": {}
 },
 "Item": {
-  "types": ["item"],
+  "types": ["item", "move"],
+  "templates": {
+    "base": {
+      "name": "",
+      "description": ""
+    }
+  },
   "item": {
     "description": "",
     "quantity": 1,
     "weight": 0,
     "attributes": {}
+  },
+  "team_moves": {
+    "move_a": "",
+    "move_b": ""
+  },
+  "move": {
+    "templates": [
+      "base"
+    ],
+    "playbook": "",
+    "rollLabel": "",
+    "moveType": null
   }
 }
 }

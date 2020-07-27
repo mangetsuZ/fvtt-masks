@@ -1,5 +1,5 @@
 {
-  "name": "fvtt-masks",
+  "name": "masks",
   "title": "Masks: A New Generation",
   "description": "A rudimentary implementation of Masks: A New Generation for Foundry VTT, based on the Simple World-Building System for Foundry designed by Atropos.",
   "version": 0.36,
