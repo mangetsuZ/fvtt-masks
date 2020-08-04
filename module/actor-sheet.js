@@ -1,3 +1,6 @@
+import { PlaybookList, CONSTANTS } from './config.js';
+
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -23,13 +26,37 @@ export class MasksActorSheet extends ActorSheet {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
 
-        if (this.actor.data.type == 'hero') {
-            data.data.playbooklist = [
-                "The Beacon", "The Bull", "The Delinquent", "The Doomed", "The Janus", "The Legacy",
-                "The Nova", "The Outsider", "The Protege", "The Transformed"
-            ];
+        if (this.actor.data.type == 'character') {
+            data.data.playbooklist = PlaybookList.getPlaybooks();
         }
+
+        // Prepare items.
+        this._prepareCharacterItems(data);
+        // this._prepareNpcItems(data);
+
         return data;
+    }
+
+    /**
+     * Organize and classify Items for Character sheets.
+     *
+     * @param {Object} sheetData The actorsheet data to draw from.
+     *
+     * @return {undefined}
+     *
+     * uses actorData to set the actor's data directly
+     */
+    _prepareCharacterItems(sheetData) {
+        // Initialize containers.
+        const moves = [];
+        const basicMoves = [];
+        const peripheralMoves = [];
+        const adultMoves = [];
+        const playbookMoves = [];
+        const advances = [];
+        const later_advances =[];
+
+
     }
 
     /* -------------------------------------------- */

@@ -1,133 +1,118 @@
 {
-"Actor": {
-  "types": ["hero", "villain"],
-  "hero": {
-    "hero_name": "",
-    "real_name": "",
-    "appearance": "",
-    "potential": {
-
-    },
-    "conditions": {
-      "afraid": {
-        "label": "Afraid"
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ],
+    "character": {
+      "hero_name": "",
+      "real_name": "",
+      "potential": {
       },
-      "hopeless": {
-        "label": "Hopeless"
-      },
-      "insecure":{
-        "label": "Insecure"
-      },
-      "guilty": {
-        "label": "Guilty"
-      },
-      "angry": {
-        "label": "Angry"
-      },
-      "extra": {
-        "label": "Extra"
+      "conditions": {
+        "afraid": {
+          "value": false
+        },
+        "hopeless": {
+          "value": false
+        },
+        "insecure": {
+          "value": false
+        },
+        "guilty": {
+          "value": false
+        },
+        "angry": {
+          "value": false
+        },
+        "extra": {
+          "value": null
+        }
       }
     },
-    "influence": "",
+    "npc": {}
+  },
+  "Item": {
+    "types": [
+      "item",
+      "move",
+      "playbook"
+    ],
+    "templates": {
+      "base": {
+        "name": "",
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": [
+        "base"
+      ],
+      "quantity": 1,
+      "weight": 0,
+      "effects": []
+    },
+    "team_moves": [],
+    "move": {
+      "templates": [
+        "base"
+      ],
+      "playbook": "",
+      "rollLabel": "",
+      "moveType": null
+    },
     "playbook": {
-      "name": "",
+      "templates": [
+        "base"
+      ],
+      "looks": [],
       "moment_of_truth": "",
-      "backstory": {
-        "number_1": {
-          "value": ""
-        },
-        "number_2": {
-          "value": ""
-        },
-        "number_3": {
-          "value": ""
-        },
-        "number_4": {
-          "value": ""
-        },
-        "number_5": {
-          "value": ""
-        }
-      },
+      "backstory": [],
       "team_story": {
-        "label": "When our team first came together...",
-        "value": {}
+        "description": "",
+        "value": ""
       },
       "labels": {
         "danger": {
-          "label": "Danger"
+          "value": 0,
+          "min": -2,
+          "max": 3
         },
         "freak": {
-          "label": "Freak"
+          "value": 0,
+          "min": -2,
+          "max": 3
         },
-        "savior":{
-          "label": "Savior"
+        "savior": {
+          "value": 0,
+          "min": -2,
+          "max": 3
         },
         "superior": {
-          "label": "Superior"
+          "value": 0,
+          "min": -2,
+          "max": 3
         },
         "mundane": {
-          "label": "Mundane"
+          "value": 0,
+          "min": -2,
+          "max": 3
         },
         "extra": {
-          "label": "Extra"
+          "value": null,
+          "min": null,
+          "max": null
         }
       },
-      "advances": {
-        "label": "Advances",
-        "later_advances": {
-          "label": "Later Advances"
-        }
-      },
-      "abilities": {
-        "ability_one": {
-          "label": ""
-        },
-        "hopeless": {
-          "label": "Hopeless"
-        },
-        "insecure":{
-          "label": "Insecure"
-        },
-        "guilty": {
-          "label": "Guilty"
-        },
-        "angry": {
-          "label": "Angry"
-        },
-        "extra": {
-          "label": "Extra"
-        }
+      "moves": [],
+      "advances": [],
+      "later_advances": [],
+      "abilities": [],
+      "relationships": [],
+      "influence": {
+        "description": "",
+        "value": ""
       }
     }
-  },
-  "villain": {}
-},
-"Item": {
-  "types": ["item", "move"],
-  "templates": {
-    "base": {
-      "name": "",
-      "description": ""
-    }
-  },
-  "item": {
-    "description": "",
-    "quantity": 1,
-    "weight": 0,
-    "attributes": {}
-  },
-  "team_moves": {
-    "move_a": "",
-    "move_b": ""
-  },
-  "move": {
-    "templates": [
-      "base"
-    ],
-    "playbook": "",
-    "rollLabel": "",
-    "moveType": null
   }
-}
 }

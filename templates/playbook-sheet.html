@@ -1,0 +1,143 @@
+<form class="{{cssClass}} class item-form flexcol" autocomplete="off">
+    <header class="sheet-header flexrow">
+        {{!-- <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/> --}}
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-navigation sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="moves">Moves</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+            <div class="class-fields grid grid-3col">
+                {{!-- Looks --}}
+                <div class="cell resource">
+                    <div class="cell resource resource--items-help flexrow">
+                        <div class="cell__title grid-2col">
+                            <label>Looks</label>
+                            <button class="class-control" data-action="create" data-type="looks"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <ul class="items-list">
+                        {{#each data.looks as |characteristic id|}}
+                        <li class="item characteristic" data-index="{{id}}">
+                            <div class="flexrow">
+                                <input type="text" class="input input--title" name="data.looks.{{id}}.label" value="{{characteristic.label}}" data-dtype="string"/>
+                                <a class="class-control" data-action="delete" data-type="looks"><i class="fas fa-trash"></i></a>
+                            </div>
+                            <textarea class="characteristic" name="data.looks.{{id}}.description" rows="5" title="What's your characteristic?" data-dtype="String">{{characteristic.description}}</textarea>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab" data-group="primary" data-tab="move">
+
+            <div class="class-fields">
+
+                <div class="cell resource resource--move-help flexrow">
+                    <div>
+                        <p>You can define groups of Move choices for this Playbook below. Each group can have any
+                            number of Move items dropped inside of it, and it can have its type set to one of Basic,
+                            Peripheral or Adult.</p>
+                    </div>
+                </div>
+
+                <div class="move-grid grid grid-2col">
+
+                    {{#each data.moveTypes as |moveGroup groupId|}}
+                    <div class="cell resource move-group" data-index="{{groupId}}">
+                        <div class="cell__title">
+                            <input type="text" name="data.moveTypes.{{groupId}}.label"
+                                   placeholder=" Choose one each time you advance." value="{{moveGroup.label}}">
+                            <div class="class-controls">
+                                <a class="class-control" data-action="delete" data-type="move-groups"
+                                   data-index="{{groupId}}"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="item-container drop-area" data-group="{{groupId}}">
+                            {{#if moveGroup.objects }}
+                            <ul class="tags">
+                                {{#each moveGroup.objects as |item key|}}
+                                <li class="tag" data-item-id="{{item.data._id}}">{{item.data.name}}<span
+                                        class="remove-tag delete-move" role="button"
+                                        data-action="delete"></span></span></li>
+                                {{/each}}
+                            </ul>
+                            {{else}}
+                            <span>Drop moves here.</span>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab" data-group="primary" data-tab="advance">
+
+            <div class="class-fields">
+
+                <div class="cell resource resource--advance-help flexrow">
+                    <div>
+                        <p>You can define groups of Advancement choices for this Playbook below. Each group can have any
+                            number of Advancement items dropped inside of it, and it can have its requirement set to a
+                            number that defines the number of other Advances that must be taken before it can be
+                            chosen.</p>
+                    </div>
+                    <div class="class-controls">
+                        <button class="class-control" data-action="create" data-type="advance-groups"><i
+                                class="fas fa-plus"></i> Add new advance group.
+                        </button>
+                    </div>
+                </div>
+
+                <div class="advance-grid grid grid-2col">
+                    {{#each data.advance as |advanceGroup groupId|}}
+                    <div class="cell resource advance-group" data-index="{{groupId}}">
+                        <div class="cell__title">
+                            <input type="text" name="data.advance.{{groupId}}.label"
+                                   placeholder=" Choose one each time you advance." value="{{advanceGroup.label}}">
+                            <div class="class-controls">
+                                <a class="class-control" data-action="delete" data-type="advance-groups"
+                                   data-index="{{groupId}}"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="item-container drop-area" data-group="{{groupId}}">
+                            {{#if advanceGroup.objects }}
+                            <ul class="tags">
+                                {{#each advanceGroup.objects as |item key|}}
+                                <li class="tag" data-item-id="{{item.data._id}}">{{item.data.name}}<span
+                                        class="remove-tag delete-advance" role="button"
+                                        data-action="delete"></span></span></li>
+                                {{/each}}
+                            </ul>
+                            {{else}}
+                            <span>Drop items here.</span>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

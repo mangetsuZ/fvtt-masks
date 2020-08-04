@@ -1,3 +1,6 @@
+import { PlaybookList, CONSTANTS } from './config.js';
+
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -27,10 +30,8 @@ export class MasksItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-    data.data.playbooklist = [
-      "The Beacon", "The Bull", "The Delinquent", "The Doomed", "The Janus", "The Legacy",
-      "The Nova", "The Outsider", "The Protege", "The Transformed"
-    ];
+    data.data.playbooklist = PlaybookList.getPlaybooks();
+    data.data.moveTypes = CONSTANTS.moveList;
     return data;
   }
 

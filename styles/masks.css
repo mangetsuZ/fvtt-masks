@@ -136,4 +136,15 @@
   min-width: 460px;
   min-height: 400px;
 }
+.masks.cell__title.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+.masks.cell__title label {
+  text-align: left;
+}
 /*# sourceMappingURL=masks.css.map */
