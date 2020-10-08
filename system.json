@@ -16,7 +16,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "",
-  "manifest": "",
-  "download": "",
+  "manifest": "https://raw.githubusercontent.com/OmnesPotens/fvtt-masks/master/system.json",
+  "download": "https://github.com/OmnesPotens/fvtt-masks/zipball/master/",
   "license": "LICENSE.txt"
 }
